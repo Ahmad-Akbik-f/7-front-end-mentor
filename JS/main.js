@@ -15,30 +15,24 @@ submit.onclick = ()=>{
             errorMas.classList.add("error-text")
             el.classList.add("error")
             el.appendChild(errorMas)
-            if(!el.classList.contains("email")){
-                if(!el.classList.contains("email-error")){
-                    el.children[0].placeholder = "";
-                }else{
-                    el.
-                }
-            }
-        }else{
-            let emailCon = /.+@.+\.\w+/ig;
-            console.log(e_mail.value.match(emailCon))
-            if(e_mail.value.match(emailCon) === null && e_mail.value != ""){
-                if(e_mail.parentElement.classList.contains("error")){
-                    e_mail.parentElement.classList.remove("error");
-                    e_mail.parentElement.lastChild.remove();
-                }
-                let errorMas = document.createElement("span");
-                errorMas.textContent = "Looks like this is not an email";
-                errorMas.classList.add("error-text")
-                e_mail.parentElement.classList.add("email-error")
-                e_mail.value = ""
-                e_mail.placeholder = "example@gmail.com"
-                e_mail.parentElement.classList.add("error")
-                e_mail.parentElement.appendChild(errorMas)
-            }
         }
     });
+    if(e_mail.value != ""){
+        let emailCon = /.+@.+\.\w+/ig;
+        if(e_mail.value.match(emailCon) === null && e_mail.value != ""){
+            if(e_mail.parentElement.classList.contains("error")){
+                e_mail.parentElement.classList.remove("error");
+                e_mail.parentElement.lastChild.remove();
+            }
+            let emas = document.createElement("span");
+            emas.textContent = "Looks like this is not an email";
+            console.log(emas)
+            emas.classList.add("error-text")
+            e_mail.parentElement.classList.add("email-error")
+            e_mail.value = ""
+            e_mail.placeholder = "example@gmail.com"
+            e_mail.parentElement.classList.add("error")
+            e_mail.parentElement.appendChild(emas)
+        }
+    }
 }
